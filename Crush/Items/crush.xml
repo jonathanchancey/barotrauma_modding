@@ -16,9 +16,22 @@
     <Deconstruct time="10">
       <Item identifier="antibloodloss1" copycondition="true" mincondition="0.1" />
     </Deconstruct>
-    <InventoryIcon texture="Mods/crush/Items/crushI.png" sourcerect="447,819,80,81" origin="0.5,0.5" />
-    <Sprite texture="crush.png" sourcerect="430.7,722,60,188" depth="0.6" origin="0.5,0.5" />
-    <Body width="60" height="140" density="9" />
+    <InventoryIcon texture="Mods/crush/Items/spritesheet_item.png" sourcerect="400,760,120,120" origin="0.5,0.5" />
+    <Sprite texture="spritesheet.png" sourcerect="400,710,150,180" depth="0.6" origin="0.5,0.5" />
+    <Body width="150" height="180" density="9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This" Condition="-25.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character" delay="10" duration="10">
+        <sound file="Mods/crush/Items/drink.ogg" type="OnUse" range="600" selectionmode="All" />
+        <Affliction identifier="drunk" amount="2.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
+        <Affliction identifier="psychosisresistance" amount="600"/>
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
   </Crush>
-
 </Items>
