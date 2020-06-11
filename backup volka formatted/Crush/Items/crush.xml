@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Crush name="10 Barrel brewing Co. Crush Cucumber Sour" identifier="crush" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="Crushable" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" spawnprobability="0.5"/>
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="20" />
+    <Price locationtype="City" buyprice="20" />
+    <Price locationtype="Outpost" buyprice="20" />
+    <Price locationtype="Mine" buyprice="20" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="20">
+      <RequiredSkill identifier="medical" level="5" />
+      <RequiredItem identifier="antibloodloss1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="antibloodloss1" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <InventoryIcon texture="Mods/crush/Items/crushI.png" sourcerect="447,819,80,81" origin="0.5,0.5" />
+    <Sprite texture="crush.png" sourcerect="430.7,722,60,188" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="140" density="9" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,5" handle1="-5,0" holdangle="305" reload="1.0" msg="ItemMsgPickUpSelect">
+      <RequiredSkill identifier="medical" level="1" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" delay="4.0">
+        <SpawnItem identifiers="smg" target="Character" />
+        <SpawnItem identifiers="smgmagazine" target="Character" />
+        <SpawnItem identifiers="smgmagazine" target="Character" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="Character" duration="10.0" delay="4.0">
+        <ReduceAffliction identifier="internaldamage" amount="100.5" />
+      </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="Character" duration="10.0" delay="100.0">
+        <Affliction identifier="internaldamage" amount="1000.5" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="Character" disabledeltatime="true" delay="4.0">
+        <Affliction identifier="durationincrease" amount="600" />
+        <Affliction identifier="pressureresistance" amount="600" />
+        <Affliction identifier="strengthen" amount="600" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="Character" disabledeltatime="true" delay="4.0">
+          <sound file="Mods/crush/Items/soviet.ogg" type="OnUse" range="600" selectionmode="All" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="Character" disabledeltatime="true">
+        <sound file="Mods/crush/Items/drink.ogg" type="OnUse" range="600" selectionmode="All" />
+      </StatusEffect>
+        <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Crush>
+
+</Items>
