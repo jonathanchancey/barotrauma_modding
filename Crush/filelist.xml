@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Crush" path="Mods/Crush/filelist.xml" corepackage="false" gameversion="0.9.7.1" steamworkshopurl="http://steamcommunity.com/sharedfiles/filedetails/?source=Facepunch.Steamworks&amp;id=2018473933" installtime="1584047741">
+  <Item file="Mods/Crush/Items/crush.xml" />
+</contentpackage>
