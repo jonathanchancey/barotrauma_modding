@@ -21,15 +21,17 @@
     <Body width="150" height="180" density="9" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnUse" target="This" Condition="-25.0" disabledeltatime="true" />
-      <StatusEffect type="OnUse" target="Character" delay="10" duration="10">
-        <sound file="Mods/crush/Items/drink.ogg" type="OnUse" range="600" selectionmode="All" />
-        <Affliction identifier="drunk" amount="2.0" />
-      </StatusEffect>
       <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
+        <sound file="Mods/crush/Items/seltzer_opening.ogg" type="OnUse" range="600" selectionmode="All" />
         <Affliction identifier="psychosisresistance" amount="600"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" delay="10" duration="10">
+        <Affliction identifier="drunk" amount="2.0" />
+        <ReduceAffliction identifier="oxygenlow" amount="0.06" />
       </StatusEffect>
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
+        <sound file="Mods/crush/Items/crush.ogg" type="OnUse" range="600" selectionmode="All" />
         <Remove />
       </StatusEffect>
     </Holdable>
