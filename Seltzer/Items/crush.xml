@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Crush name="10 Barrel Brewing Co. Crush Cucumber Sour" identifier="crush_cucumber" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="Sour Base with Cucumber Finish. The bubbles seem to fill your lungs with oxygen." useinhealthinterface="true" scale="0.2" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" spawnprobability="0.5"/>
+    <PreferredContainer primary="supplycab" minamount="1" maxamount="1" spawnprobability="0.5"/>
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5"/>
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="20" />
+    <Price locationtype="City" buyprice="20" />
+    <Price locationtype="Outpost" buyprice="20" />
+    <Price locationtype="Mine" buyprice="20" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="5" />
+      <RequiredItem identifier="antibloodloss1" />
+      <RequiredItem identifier="ethanol" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="antibloodloss1" copycondition="true" mincondition="0.1" />
+      <Item identifier="ethanol" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+    <InventoryIcon texture="Mods/crush/Items/spritesheet_item.png" sourcerect="400,760,120,120" origin="0.5,0.5" />
+    <Sprite texture="spritesheet.png" sourcerect="400,710,150,180" depth="0.6" origin="0.5,0.5" />
+    <Body width="150" height="180" density="9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This" Condition="-25.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true">
+        <sound file="Mods/crush/Items/seltzer_opening.ogg" type="OnUse" range="600" selectionmode="All" />
+        <Affliction identifier="psychosisresistance" amount="600"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" delay="10" duration="10">
+        <Affliction identifier="drunk" amount="2.0" />
+        <ReduceAffliction identifier="oxygenlow" amount="0.06" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Mods/crush/Items/crush.ogg" type="OnUse" range="600" selectionmode="All" />
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Crush>
+</Items>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Crush" path="Mods/Crush/filelist.xml" corepackage="false" gameversion="0.9.10.0">
+  <Item file="Mods/Crush/Items/crush.xml" />
+</contentpackage>
